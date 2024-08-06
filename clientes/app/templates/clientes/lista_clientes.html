@@ -1,0 +1,29 @@
+{%extends 'base.html'%}
+
+{% block "conteudo" %}
+<div class="container" >    
+  {% for cliente in object_list%}
+  <div class="row" >
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">{{cliente.nome}}</div>
+        <div class="panel-body">
+          {{cliente.profissao}} - {{cliente.data_nascimento}}
+          <hr>
+          {{cliente.endereco.estado}} - 
+          {{cliente.endereco.cidade}} -
+          {{cliente.endereco.bairro}}  
+          {{cliente.endereco.rua}} - 
+          {{cliente.endereco.numero}}
+        </div>
+        <div class="panel-footer">
+            <a class="btn btn-success" href={% url "lista_cliente" pk=cliente.id %}>Exibir</a>
+            <a class="btn btn-warning" href={% url "editar_cliente" pk=cliente.id %}>Editar</a>
+            <a class="btn btn-danger" href={% url "remover_cliente" pk=cliente.id %}>Remover</a>
+        </div>
+      </div>
+    </div>
+  {% endfor%}
+  </div>
+</div><br>
+{% endblock "conteudo" %}

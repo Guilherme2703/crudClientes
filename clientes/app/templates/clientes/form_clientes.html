@@ -1,0 +1,12 @@
+
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block "conteudo"%}
+<form  method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% bootstrap_form endereco_form %}
+    <input type="submit" class="btn btn-primary" value="Cadastrar">
+</form>
+{% endblock "conteudo"%}
+
